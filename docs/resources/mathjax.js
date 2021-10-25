@@ -9,7 +9,8 @@ window.MathJax = {
         ignoreHtmlClass: ".*|",
         processHtmlClass: "arithmatex"
     },
-    TeX: {
+    tex: {
+        tags: "ams",
         TagSide: "right",
         TagIndent: ".8em",
         MultLineWidth: "85%",
