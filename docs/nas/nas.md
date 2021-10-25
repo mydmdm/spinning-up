@@ -22,6 +22,13 @@ $$
 W_a^\star = \mathop{\arg\min}_W \, \, \mathcal{L}_{train}(a, W)
 $$
 
+```mermaid
+flowchart LR
+space[Search Space A] --> controller[Search Strategy]
+controller -->|sample a from A| eval[Evaluation Strategy]
+eval -->|return score of a| controller
+```
+
 Above equations introduce some key concepts of a NAS algorithm, they are
 
 - **Search Space**. The search space $\mathcal{A}$ defines the set of all the possible architectures.
@@ -32,3 +39,4 @@ Above equations introduce some key concepts of a NAS algorithm, they are
 
 ### Evaluation Strategy
 The ideal evaluation function is directly scoring each architecture candidate $a$ with $\phi(a)$, which requires a standard training from sketch and evaluation of the whole training and validation dataset respectively. The computation cost of $\phi(a)$ is unfortunately huge and it is not suitable in the scenario of NAS, where thousands of architectures needs to be evaluated. 
+
