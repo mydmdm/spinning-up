@@ -58,6 +58,8 @@ To reduce the evaluation cost, some low cost approximates (denoted by $\hat{\phi
 
 ## Kinds of NAS algorithms
 
+![algorithms](media/nas-algo.svg){: .center}
+
 ### Multi-Trial NAS algorithms
 
 As illustrated in below diagram, the early NAS algorithms work in a multi-trial way, which depends on the search strategy (controller) to explore the huge space. 

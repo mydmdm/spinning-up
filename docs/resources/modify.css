@@ -164,3 +164,8 @@ a:visited {
 .wy-side-nav-search>div.version {
  color: var(--color--coolgray2) !important;
 }
+
+.center {
+  display: block;
+  margin: 0 auto;
+}
