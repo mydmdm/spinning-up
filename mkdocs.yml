@@ -4,24 +4,17 @@ plugins:
   - mermaid2
 site_name: Spinning Up Documentation
 theme:
-  name: readthedocs
-  palette:
-    - scheme: default
-      toggle:
-        icon: material/toggle-switch-off-outline
-        name: Switch to dark mode
-    - scheme: slate
-      toggle:
-        icon: material/toggle-switch
-        name: Switch to light mode
+  name: material
   features:
     - navigation.indexes
 use_directory_urls: false
 markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
+  - pymdownx.details
+  - pymdownx.superfences
   - mdx_math
-
+  - admonition
 extra_javascript:
   - resources/mathjax.js
   - https://unpkg.com/mermaid/dist/mermaid.min.js
