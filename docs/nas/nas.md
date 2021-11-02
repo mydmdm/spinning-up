@@ -1,6 +1,9 @@
 # Introduction to NAS
 
-## Why we do NAS
+## What This Is
+Welcome to the Spinning Up documentation in Neural Architecture Search (NAS) from the [NNI](https://github.com/microsoft/nni) team. During building the AutoML tool, we find that some users, especially the beginners, need to a simple but clear introduction to this area. Inspired by the [OpenAI Spinning Up in deep RL](https://spinningup.openai.com/en/latest/), we build up this educational resource to help users better understand how NAS works and enhance their ability to land NAS into practice. This is kind of a survey work, but more focused on concepts other than details of algorithms.
+
+## The Motivation and Challenges of NAS
 *Placeholder for the advantage and motivation of adopting NAS in practical scenarios.*
 
 ## Key Concepts and Terminology
@@ -27,7 +30,10 @@ W_a^\star = \mathop{\arg\min}_W \, \, \mathcal{L}_{train}(a, W)
 In a [well written survey](https://arxiv.org/abs/1808.05377), the authors summarize three key concepts from the NAS process, which are  the ***Search Space***, the ***Search Strategy*** and the ***Performance Evaluation Strategy***. We will follow these concepts here.
 
 ### Search Space
-The search space $\mathcal{A}$ defines the set of all the possible architectures.
+The search space $\mathcal{A}$ defines the set of all the possible architectures. There are two kinds of methods to construct the search space. 
+
+- Cell based search space. A cell is sampled from the space and then stacked $N$ times to generate a model architecture. 
+- Layer based search space. Each searchable layer is selected from a set of predefined blocks. 
 
 !!! info "Architecture Sampling"
     The process of selecting a specific architecture $a$ from the search space is called *architecture sampling* and denoted by $a \sim \mathcal{A}$.
