@@ -36,9 +36,9 @@ Model search space, aka. model space or architecture space, defines the set of a
 ### Exploration Strategy
 Exploration strategy, aka. search strategy, is the optimization algorithm used to explore the huge model search space and maximize the evaluation function. Since optimization problem is an old question studied for decades, there are lots of algorithms being tested in searching the best candidate, such as 
 
-- Parameter free approaches, like [grid search]() and [random search]()
-- Bayesian optimization approaches, like [Tree Parzen Estimator (TPE)]() and [SMAC]()
-- Stochastic optimization approaches, like [evolutionary algorithm]()
+- Parameter free approaches, like [grid search](https://en.wikipedia.org/wiki/Hyperparameter_optimization#Grid_search) and [random search](https://en.wikipedia.org/wiki/Hyperparameter_optimization#Random_search)
+- [Bayesian optimization](https://en.wikipedia.org/wiki/Bayesian_optimization) approaches, like [Tree Parzen Estimator (TPE)](http://papers.neurips.cc/paper/4443-algorithms-for-hyper-parameter-optimization.pdf) and [SMAC](http://www.cs.ubc.ca/labs/beta/Projects/SMAC/)
+- Stochastic optimization approaches, like [evolutionary algorithm](https://en.wikipedia.org/wiki/Evolutionary_algorithm)
 - Reinforcement learning, like [Proximal Policy Optimization (PPO) algorithms](https://arxiv.org/abs/1707.06347)
 - Gradient based methods
 
@@ -97,3 +97,8 @@ In the multi-trial algorithms, *lower fidelity estimates* are widely used to spe
 
 ### Gradient based algorithms
 
+## Extended Reading
+
+- [Neural architecture search: A survey](https://www.jmlr.org/papers/volume20/18-598/18-598.pdf)
+- [A survey on neural architecture search](https://arxiv.org/abs/1905.01392)
+- [Weight-Sharing Neural Architecture Search: A Battle to Shrink the Optimization Gap](https://arxiv.org/abs/2008.01475)
