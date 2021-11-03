@@ -58,9 +58,8 @@ To reduce the evaluation cost, some low cost approximates (denoted by $\hat{\phi
 
 !!! info "Ranking Quality"
     It's natural to raise the question of how to measure the quality of $\hat{\phi}(a)$. [Kendall's $\tau$ coefficient](https://en.wikipedia.org/wiki/Kendall_rank_correlation_coefficient), a measurement of rank correlation, is widely used to prove the effectiveness of $\hat{\phi}(a)$ in many recent literatures. 
-
-!!! attention "You should know"
-    The nature of NAS is to identify the ***top ranked*** samples from the space. Though frequently used, Kendall's $\tau$ coefficient cares the ranking quality among the whole space, not only the top part. This implies that algorithms taking it as optimization object may waste some capacity on the unimportant part of space. 
+    
+    However, the nature of NAS is to identify the ***top ranked*** samples from the space. Though frequently used, Kendall's $\tau$ coefficient cares the ranking quality among the whole space, not only the top part. This implies that algorithms taking it as optimization object may waste some capacity on the unimportant part of space. 
 
 ### Weights Sharing
 *placeholder for discussing different weights sharing methods, e.g., block-level, super-kernel.*
