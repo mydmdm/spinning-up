@@ -3,7 +3,7 @@
 ## What This Is
 Welcome to the Spinning Up documentation in Neural Architecture Search (NAS) from the [NNI](https://github.com/microsoft/nni) team. During building the AutoML tool, we find that some users, especially the beginners, need to a simple but clear introduction to this area. Inspired by the [OpenAI Spinning Up in deep RL](https://spinningup.openai.com/en/latest/), we build up this educational resource to help users better understand how NAS works and enhance their ability to land NAS into practice. This is kind of a survey work, but more focused on concepts other than details of algorithms.
 
-## The Motivation and Challenges of NAS
+## The Motivation and Challenges
 *Placeholder for the advantage and motivation of adopting NAS in practical scenarios.*
 
 ## Key Concepts and Terminology
@@ -58,46 +58,64 @@ To reduce the evaluation cost, some low cost approximates (denoted by $\hat{\phi
 
 !!! info "Ranking Quality"
     It's natural to raise the question of how to measure the quality of $\hat{\phi}(a)$. [Kendall's $\tau$ coefficient](https://en.wikipedia.org/wiki/Kendall_rank_correlation_coefficient), a measurement of rank correlation, is widely used to prove the effectiveness of $\hat{\phi}(a)$ in many recent literatures. 
-    
+
     However, the nature of NAS is to identify the ***top ranked*** samples from the space. Though frequently used, Kendall's $\tau$ coefficient cares the ranking quality among the whole space, not only the top part. This implies that algorithms taking it as optimization object may waste some capacity on the unimportant part of space. 
 
-### Weights Sharing
-*placeholder for discussing different weights sharing methods, e.g., block-level, super-kernel.*
-
-## Kinds of NAS algorithms
-
-### A Taxonomy of NAS Algorithms
-
-![algorithms](media/nas-algo.svg){: .center}
-
-Above is a non-exhaustive, but useful taxonomy of NAS algorithms. Citations [below]().
-
-### Gradient-free vs. Gradient-based NAS
-
-### Multi-Trial vs. One-Shot NAS
-
-As illustrated in below diagram, the early NAS algorithms work in a multi-trial way, which depends on the search strategy (controller) to explore the huge space. 
-
-
-Since the cost of the complete NAS process can be approximated as the product of number of architectures evaluated and the cost of each single evaluation (the computation of controller itself is typically ignorable), such algorithms focus on improving the efficiency of search strategy.
-
-- Random Search (RS)
-- Bayesian Optimization (BO) 
-- Evolutionary methods
-- Reinforcement Learning (RL) 
-
-In the multi-trial algorithms, *lower fidelity estimates* are widely used to speedup the searching process. 
-
-
-### Ranking based NAS algorithms
-
-### One-Shot NAS algorithms
-
-
-### Gradient based algorithms
-
-## Extended Reading
+### Extended Reading
 
 - [Neural architecture search: A survey](https://www.jmlr.org/papers/volume20/18-598/18-598.pdf)
 - [A survey on neural architecture search](https://arxiv.org/abs/1905.01392)
 - [Weight-Sharing Neural Architecture Search: A Battle to Shrink the Optimization Gap](https://arxiv.org/abs/2008.01475)
+
+
+## Kinds of NAS algorithms
+
+NAS is rapid-growing research area. There are importing works rising every year and it leads to great difficulties for beginners to get a big picture of these algorithms. Though well realizing the impossibility, we draw a taxonomy modified from the origin of [this survey](https://arxiv.org/abs/2008.01475).
+
+
+![algorithms](media/nas-algo.svg){: .center}
+
+We hope the readers realize that this taxonomy is not so accurate and comprehensive. The purpose of it is to help to give a brief picture and the evolving of algorithms.
+
+### Multi-Trial NAS 
+
+Early NAS algorithms work in a multi-trial way, where the sampled candidate architecture is trained independently and individually. 
+
+![algorithms](media/nas-mt.svg){: .center}
+
+The *left* of above diagram is the classic abstract illustration of multi-trial NAS algorithms. In every iteration, controller (exploration strategy, especially gradient-free methods) samples a candidate architecture from the space, and passes it to the model evaluator. The evaluator trains and tests the performance the architecture and returns it back to controller. Then controller decides which architecture to be sampled in the next iteration according to the optimization algorithms.
+
+Since the cost of the complete NAS process can be approximated as the product of number of architectures evaluated and the cost of each single evaluation (the computation of controller itself is typically ignorable), such works tries different algorithms (e.g., evolutionary or reinforcement learning) to improve the efficiency of exploring.
+
+Another frequently adopted improvement is to speedup the evaluation based on insufficient training results (aka. *lower fidelity estimates*), such as 
+
+- training on few epochs and sub-dataset
+- prediction or early stop based on learning curves
+
+#### Extended reading
+- Reinforcement Learning
+    - RL-NAS: [Neural Architecture Search with Reinforcement Learning](https://arxiv.org/abs/1611.01578)
+    - NASNet: [Learning transferable architectures for scalable image recognition]()
+    - PNAS: [Progressive neural architecture search]()
+    - [Practical block-wise neural network architecture generation]()
+    - [Mnasnet: Platform-aware neural architecture search for mobile]()
+    - [Efficientnet: Rethinking model scaling for convolutional neural networks]()
+    - [Nas-fpn: Learning scalable feature pyramid architecture for object detection]()
+    - [Efficientdet: Scalable and efficient object detection]()
+- Evolutionary
+    - [Large-scale evolution of image classifiers]()
+
+### One-shot Predictor-based NAS
+Following the direction of speeding up the evaluation, some recent works build performance predictors to replace the costly training and testing operation (illustrated by the *right* of above diagram). 
+
+#### Extending reading
+- [BRPNAS]()
+
+### One-Shot Weights Sharing
+*placeholder for discussing different weights sharing methods, e.g., block-level, super-kernel.*
+
+### Differential NAS
+
+
+#### Extending reading
+- [Darts: Differentiable architecture search]()
