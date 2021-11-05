@@ -8,8 +8,9 @@ Welcome to spinning_up's documentation!
 
 .. toctree::
    :maxdepth: 2
+   :caption: Contents:
 
-   index.md
+   nas/nas.md
 
 Indices and tables
 ==================

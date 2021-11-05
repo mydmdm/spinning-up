@@ -15,13 +15,6 @@ import sys
 sys.path.insert(0, os.path.abspath('.'))
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
-from recommonmark.parser import CommonMarkParser
-
-
-source_parsers = {
-    '.md': CommonMarkParser,
-}
-
 # -- Project information -----------------------------------------------------
 
 project = 'spinning_up'
@@ -35,7 +28,14 @@ author = 'Yuqing Yang'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
+    'myst_parser'
 ]
+
+#'sphinx.ext.mathjax', ??
+
+# imgmath settings
+# imgmath_image_format = 'svg'
+# imgmath_font_size = 14
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -64,3 +64,9 @@ html_theme = "sphinx_rtd_theme"
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+
+# These paths are either relative to html_static_path
+# or fully qualified paths (eg. https://...)
+html_css_files = [
+    'css/modify.css',
+]
