@@ -1,4 +1,0 @@
-mkdocs-awesome-pages-plugin
-# mkdocs-material
-python-markdown-math
-mkdocs-mermaid2-plugin
