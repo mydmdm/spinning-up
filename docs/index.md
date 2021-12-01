@@ -7,6 +7,8 @@ During building the machine learning tools, we find that some users, especially 
 
 ```{toctree}
 :maxdepth: 2
+:caption: Neural Architecture Search
 
 nas/nas.md
+nas/nas-framework.md
 ```
